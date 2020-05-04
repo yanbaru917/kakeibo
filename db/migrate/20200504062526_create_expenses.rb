@@ -3,6 +3,7 @@ class CreateExpenses < ActiveRecord::Migration[5.2]
     create_table :expenses do |t|
       t.string :expense_name, null: false
       t.integer :expense_amount, null: false
+      t.date :expense_date, null: false
       t.timestamps
     end
   end

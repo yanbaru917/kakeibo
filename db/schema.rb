@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_062526) do
   create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "expense_name", null: false
     t.integer "expense_amount", null: false
+    t.date "expense_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_062526) do
   create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "income_name", null: false
     t.integer "income_amount", null: false
+    t.date "income_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
