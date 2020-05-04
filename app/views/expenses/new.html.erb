@@ -1,0 +1,6 @@
+<h2>支出登録</h2>
+<%= form_with model: @expense do |form|%>
+<%= form.text_field :expense_name, placeholder: :名前を入力してください, class: :form_expense_name%>
+<%= form.text_field :expense_amount, placeholder: :金額を入力してください, class: :form_expense_amount%>
+<%= form.submit %>
+<% end %>
