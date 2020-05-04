@@ -1,7 +1,7 @@
 class IncomesController < ApplicationController
 
   def index
-    @incomes = Income.order(created_at: :asc)
+    @incomes = Income.order(income_date: :asc)
     @total_income_amount = @incomes.sum(:income_amount)
   end
 
@@ -36,7 +36,7 @@ class IncomesController < ApplicationController
 
   private
   def income_params
-    params.require(:income).permit(:income_name, :income_amount)
+    params.require(:income).permit(:income_name, :income_amount, :income_date)
   end
 
 end

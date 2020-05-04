@@ -1,7 +1,8 @@
 <h2>支出編集</h2>
 <%= form_with model: @expense do |form| %>
-  <%= form.text_field :expense_name, placeholder: :名前を入力してください, class: :form_expense_name%>
-  <%= form.text_field :expense_amount, placeholder: :金額を入力してください, class: :form_expense_amount%>
+  <%= form.text_field :expense_name, placeholder: :名前を入力してください, class: :form_expense_name %>
+  <%= form.text_field :expense_amount, placeholder: :金額を入力してください, class: :form_expense_amount %>
+  <%= form.date_select :expense_date, class: :form_expense_date %>
   <%= form.submit %>
 <% end %>
 

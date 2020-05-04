@@ -2,7 +2,8 @@
 <% if @expenses.present? %><table>
   <thead>
     <tr>
-      <th>項目名</th>
+      <th>日時</th>
+      <th>項目</th>
       <th>金額</th>
       <th>操作</th>
     </tr>
@@ -10,6 +11,7 @@
   <tbody>
     <% @expenses.each do |expense| %>
       <tr>
+        <td><%= expense.expense_date%></td>
         <td><%= expense.expense_name%></td>
         <td><%= expense.expense_amount%></td>
         <td>
