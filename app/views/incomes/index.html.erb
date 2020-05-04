@@ -1,6 +1,23 @@
-<h2>収入一覧</h2>
-<div class="income-registration">
-  <ul>
-    <li><%= link_to "登録", new_income_path %></li>
-  </ul>
-</div>
+<% if @incomes.present? %><table>
+  <thead>
+    <tr>
+      <th>項目名</th>
+      <th>金額</th>
+      <th>操作</th>
+    </tr>
+  </thead> 
+  <tbody>
+    <% @incomes.each do |income| %>
+      <tr>
+        <td><%= income.income_name%></td>
+        <td><%= income.income_amount%></td>
+        <td>
+          <%= link_to "編集", "#" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<% else %>
+  <p>登録されている収入はありません</p>
+<% end %>

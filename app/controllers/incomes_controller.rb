@@ -4,8 +4,12 @@ class IncomesController < ApplicationController
     @incomes = Income.order(created_at: :asc)
   end
 
+  def show
+    @income = Income.find(params[:id])
+  end
+
   def new
-    @income = Income.new
+    @income = Income.new()
   end
 
   def create

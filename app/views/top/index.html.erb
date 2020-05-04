@@ -1,6 +1,37 @@
-<h1>家計簿</h1>
-<p>千里の道も一歩から</p>
-<ul>
-  <li><%= link_to "収入", incomes_path %></li>
-  <li><%= link_to "支出", expenses_path %></li>
-</ul>
+<header>
+  <div class="header">
+    <div class="header__title">
+      家計簿アプリ
+    </div>
+  </div>
+</header>
+
+<div class="contents">
+  <div class="top-content">
+    <div class="balance-payment">
+      収支
+    </div>
+  </div>
+  <div class="detail-content">
+    <div class="income-detail">
+      <li><%= link_to "収入詳細", incomes_path %></li>
+    </div>
+    <div class="expense-detail">
+      <li><%= link_to "支出詳細", expenses_path %></li>
+    </div>
+  </div>
+  <div class="input-content">
+    <div class="input-income">
+      <ul>
+        <li><%= link_to "収入登録", new_income_path %></li>
+      </ul>
+    </div>
+    <div class="input-expense">
+      <div class="expenses-registration">
+        <ul>
+          <li><%= link_to "支出登録", new_income_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

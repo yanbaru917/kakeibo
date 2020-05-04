@@ -1,0 +1,55 @@
+body{
+  width: 100%;
+  height: 100%;
+}
+.header{
+  width: 100%;
+  height: 90px;
+  background-color: blue;
+  .header__title{
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    line-height: 90px;
+    color: white;
+  }
+}
+
+.contents {
+  width: 100%;
+  height: 800px;
+  list-style: none;
+}
+
+.top-content{
+  height: 40%;
+  width: 100%;
+  .balance-payment{
+    font-size: 20px;
+  }
+}
+
+.detail-content{
+  height: 30%;
+  width: 100%;
+  .income-detail{
+    font-size: 20px;
+    list-style: none;
+  }
+  .expense-detail{
+    font-size: 20px;
+  }
+}
+
+.input-content{
+  height: 30%;
+  width: 100%;
+  .input-income{
+    font-size: 20px;
+  }
+  .input-expense{
+    font-size: 20px;
+  }
+}

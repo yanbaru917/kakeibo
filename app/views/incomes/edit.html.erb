@@ -1,1 +1,6 @@
 <h2>収入編集</h2>
+<%= form_with model: @income do |form|%>
+<%= form.text_field :income_name, placeholder: :名前を入力してください, class: :form_income_name%>
+<%= form.text_field :income_amount, placeholder: :金額を入力してください, class: :form_income_amount%>
+<%= form.submit %>
+<% end %>
