@@ -2,6 +2,7 @@ class IncomesController < ApplicationController
 
   def index
     @incomes = Income.order(created_at: :asc)
+    @total_income_amount = @incomes.sum(:income_amount)
   end
 
   def show
@@ -18,7 +19,9 @@ class IncomesController < ApplicationController
   end
 
   def update
-    
+    income = Income.find(params[:id])
+    income.update(income_params)
+    redirect_to incomes_path
   end
 
   def edit
@@ -28,10 +31,12 @@ class IncomesController < ApplicationController
   def destroy
     @income = Income.find(params[:id])
     @income.destroy
+    redirect_to incomes_path
   end
 
   private
   def income_params
     params.require(:income).permit(:income_name, :income_amount)
   end
+
 end

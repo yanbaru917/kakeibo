@@ -12,7 +12,8 @@
         <td><%= income.income_name%></td>
         <td><%= income.income_amount%></td>
         <td>
-          <%= link_to "編集", "#" %>
+          <%= link_to "編集", edit_income_path(income.id) %>
+          <%= link_to "削除", income_path(income.id), method: :delete %>
         </td>
       </tr>
     <% end %>
@@ -21,3 +22,7 @@
 <% else %>
   <p>登録されている収入はありません</p>
 <% end %>
+<div class="total_income_amount">
+  合計収入金額:<%= @total_income_amount %>円
+</div>
+<%= link_to "トップページ", root_path %>

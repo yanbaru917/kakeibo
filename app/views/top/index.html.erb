@@ -9,7 +9,7 @@
 <div class="contents">
   <div class="top-content">
     <div class="balance-payment">
-      収支
+      <%= @total_income_amount %>
     </div>
   </div>
   <div class="detail-content">
@@ -29,7 +29,7 @@
     <div class="input-expense">
       <div class="expenses-registration">
         <ul>
-          <li><%= link_to "支出登録", new_income_path %></li>
+          <li><%= link_to "支出登録", new_expense_path %></li>
         </ul>
       </div>
     </div>
