@@ -1,0 +1,2 @@
+module Expenses::SearchesHelper
+end

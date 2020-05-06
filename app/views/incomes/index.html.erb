@@ -1,30 +1,53 @@
-<% if @incomes.present? %><table>
-  <thead>
-    <tr>
-      <th>日時</th>
-      <th>項目</th>
-      <th>金額</th>
-      <th>操作</th>
-    </tr>
-  </thead> 
-  <tbody>
-    <% @incomes.each do |income| %>
-      <tr>
-        <td><%= income.income_date%></td>
-        <td><%= income.income_name%></td>
-        <td><%= income.income_amount%></td>
-        <td>
-          <%= link_to "編集", edit_income_path(income.id) %>
-          <%= link_to "削除", income_path(income.id), method: :delete %>
-        </td>
-      </tr>
+<% if @incomes.present? %><div class="top-contetn">
+  <div class="total_amount">
+    合計収入金額:<%= @total_income_amount %>円
+  </div>
+  <div class="form">
+    <%= form_with(url: incomes_searches_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.date_select :income_date, discard_day:true, class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
     <% end %>
-  </tbody>
+  </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>日時</th>
+        <th>項目</th>
+        <th>金額</th>
+        <th>操作</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.income_date%></td>
+          <td><%= income.income_name%></td>
+          <td><%= income.income_amount%></td>
+          <td>
+            <%= link_to "編集", edit_income_path(income.id) %>
+            <%= link_to "削除", income_path(income.id), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 <% else %>
   <p>登録されている収入はありません</p>
 <% end %>
-<div class="total_income_amount">
-  合計収入金額:<%= @total_income_amount %>円
+
+<div class="content-link">
+  <div class="content-link__top">
+    <%= link_to "収入登録", new_income_path %>
+  </div>
+  <div class="content-link__top">
+    <%= link_to "支出登録", new_expense_path %>   
+  </div>
+  <div class="content-link__bottom">
+    <%= link_to "トップページ", root_path %> 
+  </div>
+  <div class="content-link__bottom">
+    <%= link_to "支出詳細", expenses_path %> 
+  </div>
 </div>
-<%= link_to "トップページ", root_path %>

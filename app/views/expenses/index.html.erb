@@ -1,31 +1,53 @@
-<h2>支出一覧</h2>
-<% if @expenses.present? %><table>
-  <thead>
-    <tr>
-      <th>日時</th>
-      <th>項目</th>
-      <th>金額</th>
-      <th>操作</th>
-    </tr>
-  </thead> 
-  <tbody>
-    <% @expenses.each do |expense| %>
-      <tr>
-        <td><%= expense.expense_date%></td>
-        <td><%= expense.expense_name%></td>
-        <td><%= expense.expense_amount%></td>
-        <td>
-          <%= link_to "編集", edit_expense_path(expense.id) %>
-          <%= link_to "削除", expense_path(expense.id), method: :delete %>
-        </td>
-      </tr>
+<% if @expenses.present? %><div class="top-contetn">
+  <div class="total_amount">
+    合計支出金額:<%= @total_expense_amount %>円
+  </div>
+  <div class="form">
+    <%= form_with(url: expenses_searches_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.date_select :expense_date, discard_day:true, class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
     <% end %>
-  </tbody>
+  </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>日時</th>
+        <th>項目</th>
+        <th>金額</th>
+        <th>操作</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.expense_date%></td>
+          <td><%= expense.expense_name%></td>
+          <td><%= expense.expense_amount%></td>
+          <td>
+            <%= link_to "編集", edit_expense_path(expense.id) %>
+            <%= link_to "削除", expense_path(expense.id), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 <% else %>
   <p>登録されている支出はありません</p>
 <% end %>
-<div class="total_expense_amount">
-  合計支出金額:<%= @total_expense_amount %>円
+
+<div class="content-link">
+  <div class="content-link__top">
+    <%= link_to "収入登録", new_income_path %>
+  </div>
+  <div class="content-link__top">
+    <%= link_to "支出登録", new_expense_path %>   
+  </div>
+  <div class="content-link__bottom">
+    <%= link_to "トップページ", root_path %> 
+  </div>
+  <div class="content-link__bottom">
+    <%= link_to "収入詳細", incomes_path %> 
+  </div>
 </div>
-<%= link_to "トップページ", root_path %>

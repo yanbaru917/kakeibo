@@ -1,0 +1,2 @@
+module Incomes::SearchesHelper
+end
