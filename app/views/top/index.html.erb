@@ -8,8 +8,16 @@
 
 <div class="contents">
   <div class="top-content">
-    <div class="balance-payment">
-      千里の道も一歩から
+    <div class="balance_payment">
+      <div class="balance_payment__total">
+        収　支：<%= @balance_payment.to_s(:delimited) %>円
+      </div>
+      <div class="balance_payment__income">
+        総収入：<%= @total_income_amount.to_s(:delimited) %>円
+      </div>
+      <div class="balance_payment__expense">
+        総支出：<%= @total_expense_amount.to_s(:delimited) %>円
+      </div>
     </div>
   </div>
   <div class="detail-content">

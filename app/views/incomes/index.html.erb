@@ -1,6 +1,7 @@
-<% if @incomes.present? %><div class="top-contetn">
+<% if @incomes.present? %>
+<div class="top-contet">
   <div class="total_amount">
-    合計収入金額:<%= @total_income_amount %>円
+    合計収入金額 :  <%= @total_income_amount.to_s(:delimited) %>円
   </div>
   <div class="form">
     <%= form_with(url: incomes_searches_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -22,9 +23,9 @@
     <tbody>
       <% @incomes.each do |income| %>
         <tr>
-          <td><%= income.income_date%></td>
-          <td><%= income.income_name%></td>
-          <td><%= income.income_amount%></td>
+          <td><%= income.income_date %></td>
+          <td><%= income.income_name %></td>
+          <td><%= income.income_amount.to_s(:delimited) %></td>
           <td>
             <%= link_to "編集", edit_income_path(income.id) %>
             <%= link_to "削除", income_path(income.id), method: :delete %>

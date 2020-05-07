@@ -1,7 +1,14 @@
-<h2>収入登録</h2>
-<%= form_with model: @income do |form|%>
-<%= form.text_field :income_name, placeholder: :名前を入力してください, class: :form_income_name%>
-<%= form.text_field :income_amount, placeholder: :金額を入力してください, class: :form_income_amount%>
-<%= form.date_select :income_date, class: :form_income_date %>
-<%= form.submit %>
-<% end %>
+<div class="registration">
+  <div class="registration__title">
+    収入登録
+  </div>
+  <%= form_with model: @income do |form|%>
+    <%= form.text_field :income_name, placeholder: :名前を入力してください, class: :form__name%>
+    <%= form.text_field :income_amount, placeholder: :金額を入力してください, class: :form__amount%>
+    <%= form.date_select :income_date, {}, {class: :form__date} %>
+    <%= form.submit value="登録", class: :form__btn %>
+  <% end %>
+  <div class="registration__link">
+    <%= link_to "トップページ", root_path %> 
+  </div>
+</div>

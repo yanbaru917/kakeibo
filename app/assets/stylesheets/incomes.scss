@@ -1,4 +1,4 @@
-.top-contetn {
+.top-contet {
   height: 50px;
   padding-top:15px;
   padding-left: 15px;
@@ -9,9 +9,15 @@
       font-size: 30px;
       float: left;
     }
-    .form {
-      height: 40px;
-      float: right;
+    .search-form {
+      display       : inline-block;
+      border-radius : 8%;     
+      font-size     : 16pt;    
+      padding       : 12px 12px;    
+    }
+    .search-btn {
+      border-radius : 2%;     
+; 
     }
 }
 
@@ -88,6 +94,76 @@ table tr:last-child td:last-child {
     a {
       text-decoration: none;
       color: white;
+    }
+  }
+}
+
+.registration{
+  &__title{
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: green;
+  }
+  padding-left: 30px;
+  .form {
+    width: 85%;
+    height: 1000px;
+    margin: 0 auto;
+    padding-top: 30px;
+    
+    &__name{
+      display: block;
+      width: 50%;
+      height: 50px;
+      border: 1px solid #1b2538;
+	    border-radius: 4px;
+    }
+    &__amount{
+      display: block;
+      width: 50%;
+      height: 50px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #1b2538;
+	    border-radius: 4px;
+    }
+    &__date{
+      height: 50px;
+    }
+
+    &__btn{
+      display       : inline-block;
+      border-radius : 8%;     
+      font-size     : 16pt;  
+      text-align    : center;     
+      cursor        : pointer;    
+      padding       : 12px 12px;  
+      background    : #38b48b;     
+      color         : #ffffff;  
+      line-height   : 1em;      
+      transition    : .3s;      
+      border        : 2px solid #38b48b; 
+    }
+    .button:hover {
+      box-shadow    : none;      
+      color         : #000066;   
+      background    : #ffffff;   
+    }
+  }
+  &__link{
+    margin-top        :  10px;
+    width             : 50%;
+    height            : 30px;
+    background-color  : #38b48b;
+    border            : 1px solid #a8b7c5;
+    text-align        : center;
+    line-height       : 30px;
+    font-size         : 20px;
+    a {
+      text-decoration : none;
+      color           : white;
     }
   }
 }
