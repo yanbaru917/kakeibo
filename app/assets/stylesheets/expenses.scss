@@ -1,3 +1,131 @@
-// Place all the styles related to the expenses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.expense {
+  table {
+    width: 750px;
+    box-shadow: 0 0 15px -6px #00000073;
+    }
+    table tr {
+    background-color: #fff;
+    }
+    table tbody tr:hover{
+    background-color: #fffae9;
+    }
+    table th,
+    table td {
+    padding: .35em 1em;
+    border-bottom: 1px solid #eee;
+    }
+    table thead th {
+      font-size: .85em;
+      padding: 1em;
+    }
+    table thead tr{
+    background-color: #FF6600;
+    color:#fff;
+    }
+    table tbody th {
+    text-align: left;
+    font-size: .8em;
+    }
+
+    @media screen and (max-width: 600px) {
+    table{width: 100%;}
+    }
+    
+    .content-link{
+      margin-top: 15px;
+      font-size: 20px;
+      height: 30px;
+      width: 60%;
+      text-align: center;
+      
+      &__top{
+        width: 45%;
+        float: left;
+        background-color: white;
+        border: 1px solid #a8b7c5;
+        a {
+          text-decoration: none;
+          color: #FF6600;
+        }
+      }
+      &__bottom{
+        width: 45%;
+        background-color: #FF6600;
+        float: left;
+        border: 1px solid white;
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  .registration{
+    &__title{
+      font-size: 20px;
+      margin-top: 15px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #FF6600;
+    }
+    padding-left: 30px;
+    .form {
+      width: 85%;
+      height: 1000px;
+      margin: 0 auto;
+      padding-top: 30px;
+      
+      &__name{
+        display: block;
+        width: 50%;
+        height: 50px;
+        border: 1px solid #1b2538;
+        border-radius: 4px;
+      }
+      &__amount{
+        display: block;
+        width: 50%;
+        height: 50px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: 1px solid #1b2538;
+        border-radius: 4px;
+      }
+      &__date{
+        height: 50px;
+      }
+
+      &__btn{
+        display       : inline-block;
+        border-radius : 8%;     
+        font-size     : 16pt;  
+        text-align    : center;     
+        cursor        : pointer;    
+        padding       : 12px 12px;  
+        background    : #FF6600;     
+        color         : #ffffff;  
+        line-height   : 1em;      
+        transition    : .3s;      
+        border        : 2px solid #FF6600; 
+      }
+      .button:hover {
+        box-shadow    : none;      
+        color         : #000066;   
+        background    : #ffffff;   
+      }
+    }
+    &__link{
+      margin-top        :  10px;
+      width             : 50%;
+      height            : 30px;
+      background-color  : #FF6600;
+      border            : 1px solid #a8b7c5;
+      text-align        : center;
+      line-height       : 30px;
+      font-size         : 20px;
+      a {
+        text-decoration : none;
+        color           : white;
+      }
+    }
+  }
+}

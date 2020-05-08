@@ -4,107 +4,90 @@
   padding-left: 15px;
   .total_amount {
       height: 100%;
-      width: 50%;
+      width: 55%;
       font-weight: bold;
-      font-size: 30px;
+      font-size: 25px;
       float: left;
     }
     .search-form {
       display       : inline-block;
       border-radius : 8%;     
-      font-size     : 16pt;    
+      font-size     : 14pt;    
       padding       : 12px 12px;    
     }
     .search-btn {
       border-radius : 2%;     
-; 
     }
 }
-
-table{
-  width: 100%;
-  border-collapse:separate;
-  border-spacing: 0;
-}
-table th:first-child{
-  border-radius: 5px 0 0 0;
-}
-
-table th:last-child{
-  border-radius: 0 5px 0 0;
-  border-right: 1px solid #3c6690;
-}
-
-table th{
-  text-align: center;
-  color:white;
-  background: linear-gradient(#829ebc,#225588);
-  border-left: 1px solid #3c6690;
-  border-top: 1px solid #3c6690;
-  border-bottom: 1px solid #3c6690;
-  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-  width: 25%;
-  padding: 10px 0;
-}
-
-table td{
-  text-align: center;
-  border-left: 1px solid #a8b7c5;
-  border-bottom: 1px solid #a8b7c5;
-  border-top:none;
-  box-shadow: 0px -3px 5px 1px #eee inset;
-  width: 25%;
-  padding: 10px 0;
-}
-
-table td:last-child{
-  border-right: 1px solid #a8b7c5;
-}
-
-table tr:last-child td:first-child {
-  border-radius: 0 0 0 5px;
-}
-
-table tr:last-child td:last-child {
-  border-radius: 0 0 5px 0;
-}
-
-.content-link{
-  margin-top: 15px;
-  font-size: 20px;
-  height: 30px;
-  width: 60%;
-  text-align: center;
-  
-  &__top{
-    width: 45%;
-    float: left;
-    background-color: white;
-    border: 1px solid #a8b7c5;
-    a {
-      text-decoration: none;
-      color: #3c6690;
-    }
+.income{
+  table {
+  width: 750px;
+      box-shadow: 0 0 15px -6px #00000073;
   }
-  &__bottom{
-    width: 45%;
-    background-color: #3c6690;
-    float: left;
-    border: 1px solid white;
-    a {
-      text-decoration: none;
-      color: white;
+  table tr {
+  background-color: #fff;
+  }
+  table tbody tr:hover{
+  background-color: #fffae9;
+  }
+  table th,
+  table td {
+  padding: .35em 1em;
+  border-bottom: 1px solid #eee;
+  }
+  table thead th {
+    font-size: .85em;
+    padding: 1em;
+  }
+  table thead tr{
+  background-color: #0099FF;
+  color:#fff;
+  }
+  table tbody th {
+  text-align: left;
+  font-size: .8em;
+  }
+
+  @media screen and (max-width: 600px) {
+  table{width: 100%;}
+  }
+
+  .content-link{
+    margin-top: 15px;
+    font-size: 20px;
+    height: 30px;
+    width: 60%;
+    text-align: center;
+    
+    &__top{
+      width: 45%;
+      float: left;
+      background-color: white;
+      border: 1px solid #a8b7c5;
+      a {
+        text-decoration: none;
+        color: #0099FF;
+      }
+    }
+    &__bottom{
+      width: 45%;
+      background-color: #0099FF;
+      float: left;
+      border: 1px solid white;
+      a {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 }
-
 .registration{
   &__title{
     font-size: 20px;
     margin-top: 15px;
     font-weight: bold;
     margin-bottom: 5px;
-    color: green;
+    color: #0099FF;
   }
   padding-left: 30px;
   .form {
@@ -140,11 +123,11 @@ table tr:last-child td:last-child {
       text-align    : center;     
       cursor        : pointer;    
       padding       : 12px 12px;  
-      background    : #38b48b;     
+      background    : #0099FF;     
       color         : #ffffff;  
       line-height   : 1em;      
       transition    : .3s;      
-      border        : 2px solid #38b48b; 
+      border        : 2px solid #0099FF; 
     }
     .button:hover {
       box-shadow    : none;      
@@ -156,7 +139,7 @@ table tr:last-child td:last-child {
     margin-top        :  10px;
     width             : 50%;
     height            : 30px;
-    background-color  : #38b48b;
+    background-color  : #0099FF;
     border            : 1px solid #a8b7c5;
     text-align        : center;
     line-height       : 30px;

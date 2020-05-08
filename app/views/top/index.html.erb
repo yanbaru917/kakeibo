@@ -1,16 +1,35 @@
 <header>
   <div class="header">
     <div class="header__title">
-      家計簿アプリ
+      家計簿アプリ  
     </div>
   </div>
 </header>
 
 <div class="contents">
+  <div class="wisdom">
+    <div class="wisdom-top">
+      <div class="wisdom-top__word">
+        Never let your memories be greater than your dreams.
+      </div>
+      <div class="wisdom-top__autor">
+        イチロー
+      </div>
+    </div>
+    <div class="wisdom-form">
+      <div class="wisdom-form__top">
+        <%= button_to "一覧", {controller: 'wisdoms', action: 'index'}, {method: :get, class:"top-btn"} %>
+      </div>
+      <div class="wisdom-form__new">
+        <%= button_to "入力", {controller: 'wisdoms', action: 'new'}, {method: :get, class:"new-btn"} %>
+      </div>
+    </div>
+  </div>
+
   <div class="top-content">
     <div class="balance_payment">
       <div class="balance_payment__total">
-        収　支：<%= @balance_payment.to_s(:delimited) %>円
+        収  支：<%= @balance_payment.to_s(:delimited) %>円
       </div>
       <div class="balance_payment__income">
         総収入：<%= @total_income_amount.to_s(:delimited) %>円

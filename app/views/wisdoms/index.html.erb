@@ -1,0 +1,33 @@
+<div class="quote">
+  <% if @wisdoms.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th>内容</th>
+          <th>著者</th>
+          <th>操作</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <% @wisdoms.each do |wisdom| %>
+          <tr>
+            <td><%= wisdom.word %></td>
+            <td><%= wisdom.author %></td>
+            <td>
+              <%= link_to "編集", edit_wisdom_path(wisdom.id) %>
+              <%= link_to "削除", wisdom_path(wisdom.id), method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>登録しましょう！！！</p>
+  <% end %>
+
+  <div class="content-link">
+    <div class="content-link__bottom">
+      <%= link_to "トップページ", root_path %> 
+    </div>
+  </div>
+</div>
