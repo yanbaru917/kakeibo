@@ -1,0 +1,2 @@
+module Wisdoms::SearchesHelper
+end
