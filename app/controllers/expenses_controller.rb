@@ -10,12 +10,16 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new()
+    @expense = Expense.new
   end
 
   def create
-    Expense.create(expense_params)
-    redirect_to root_path
+    @expense = Expense.new(expense_params)
+    if @expense.save
+      redirect_to root_path, notice: '支出を登録しました'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,9 +27,12 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    expense = Expense.find(params[:id])
-    expense.update(expense_params)
-    redirect_to expenses_path
+    @expense = Expense.find(params[:id])
+    if @expense.update(expense_params)
+      redirect_to expenses_path, notice: '支出を更新しました'
+    else
+      render :edit
+    end
   end
 
   def destroy

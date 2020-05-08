@@ -3,23 +3,26 @@ class WisdomsController < ApplicationController
     @wisdoms = Wisdom.all
   end
 
-  def show
-
-  end
-
   def new
     @wisdom = Wisdom.new()
   end
 
   def create
-    Wisdom.create(wisdom_params)
-    redirect_to root_path
+    @wisdom= Wisdom.new(wisdom_params)
+    if @wisdom.save
+    redirect_to root_path, notice: '登録しました'
+    else
+      render :new
+    end
   end
 
   def update
-    wisdom = Wisdom.find(params[:id])
-    wisdom.update(wisdom_params)
-    redirect_to wisdoms_path
+    @wisdom = Wisdom.find(params[:id])
+    if @wisdom.update(wisdom_params)
+      redirect_to wisdoms_path, notice: '更新しました'
+    else
+      render :edit
+    end
   end
 
   def edit
