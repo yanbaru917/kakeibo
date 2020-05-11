@@ -5,6 +5,10 @@ class TopController < ApplicationController
     @expenses = Expense.order(expense_date: :asc)
     @total_expense_amount = @expenses.sum(:expense_amount)
     @balance_payment = @total_income_amount - @total_expense_amount
-    @wisdom = Wisdom.all
+    @wisdoms = Wisdom.all
+    @random_wisdoms = Wisdom.order("RAND()").first
+    @random_wisdoms_word = @random_wisdoms.word
+    @random_wisdoms_author = @random_wisdoms.author
+
   end
 end
