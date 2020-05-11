@@ -3,13 +3,6 @@
     <div class="registration__title">
       word of wisdom
     </div>
-    <%= form_with model: @wisdom do |form|%>
-      <%= form.text_field :word, placeholder: :言葉を入力してください, class: :form__name%>
-      <%= form.text_field :author, placeholder: :名前を入力してください, class: :form__amount%>
-      <%= form.submit value="登録", class: :form__btn %>
-    <% end %>
-    <div class="registration__link">
-      <%= link_to "トップページ", root_path %> 
-    </div>
+    <%= render partial: "form", locals: {wisdom: @wisdom } %>
   </div>
 </div>

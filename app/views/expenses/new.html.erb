@@ -3,14 +3,6 @@
     <div class="registration__title">
       支出登録
     </div>
-    <%= form_with model: @expense do |form|%>
-      <%= form.text_field :expense_name, placeholder: :名前を入力してください, class: :form__name%>
-      <%= form.text_field :expense_amount, placeholder: :金額を入力してください, class: :form__amount%>
-      <%= form.date_select :expense_date, {}, {class: :form__date}  %>
-      <%= form.submit value="登録", class: :form__btn %>
-    <% end %>
-    <div class="registration__link">
-      <%= link_to "トップページ", root_path %> 
-    </div>
+    <%= render partial: "form", locals: { expense: @expense } %>
   </div>
 </div>
