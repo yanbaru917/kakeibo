@@ -4,11 +4,7 @@ class ExpensesController < ApplicationController
     @expenses = Expense.order(expense_date: :desc).page(params[:page]).per(20)
     @total_expense_amount = @expenses.sum(:expense_amount)
   end
-
-  def show
-    @income = Income.find(params[:id])
-  end
-
+  
   def new
     @expense = Expense.new
   end

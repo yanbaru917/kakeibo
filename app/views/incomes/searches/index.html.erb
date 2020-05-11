@@ -1,36 +1,38 @@
-<% if @incomes.present? %>
-  <%= form_with(url: incomes_searches_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.date_select :year_month, discard_day:true, class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
+<div class="income">
+  <% if @incomes.present? %>
+    <%= form_with(url: incomes_searches_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.date_select :search_date, use_month_numbers:true, class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>日時</th>
+        <th>項目</th>
+        <th>金額</th>
+        <th>操作</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.income_date%></td>
+          <td><%= income.income_name%></td>
+          <td><%= income.income_amount%></td>
+          <td>
+            <%= link_to "編集", edit_income_path(income.id) %>
+            <%= link_to "削除", income_path(income.id), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  <% else %>
+    <p>登録されている収入はありません</p>
   <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>日時</th>
-      <th>項目</th>
-      <th>金額</th>
-      <th>操作</th>
-    </tr>
-  </thead> 
-  <tbody>
-    <% @incomes.each do |income| %>
-      <tr>
-        <td><%= income.income_date%></td>
-        <td><%= income.income_name%></td>
-        <td><%= income.income_amount%></td>
-        <td>
-          <%= link_to "編集", edit_income_path(income.id) %>
-          <%= link_to "削除", income_path(income.id), method: :delete %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
-<% else %>
-  <p>登録されている収入はありません</p>
-<% end %>
-
-<div class="top_link">
-  <%= link_to "トップページ", root_path %>
+  <div class="registration__link">
+    <%= link_to "トップページ", root_path %>
+  </div>
 </div>

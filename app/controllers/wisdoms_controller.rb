@@ -37,11 +37,7 @@ class WisdomsController < ApplicationController
     @wisdom.destroy
     redirect_to wisdoms_path
   end
-
-  def search
-    @wisdom = Wisdom.search(params[:keyword])
-  end
-
+  
   private
   def wisdom_params
     params.require(:wisdom).permit(:author, :word,)

@@ -1,5 +1,5 @@
 class Incomes::SearchesController < ApplicationController
   def index
-    @incomes = Income.search(params[:year_month])
+    @incomes = Income.search(params[:search_date])
   end
 end

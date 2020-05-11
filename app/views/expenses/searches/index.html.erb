@@ -1,35 +1,37 @@
-<% if @expenses.present? %>
-  <%= form_with(url: expenses_searches_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.date_select :year_month, discard_day:true, class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
-  <% end %>
-  <table>
-    <thead>
-      <tr>
-        <th>日時</th>
-        <th>項目</th>
-        <th>金額</th>
-        <th>操作</th>
-      </tr>
-    </thead> 
-    <tbody>
-      <% @expenses.each do |expense| %>
+<div class="expense">
+  <% if @expenses.present? %>
+    <%= form_with(url: expenses_searches_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.date_select :search_date, use_month_numbers:true, class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+    <table>
+      <thead>
         <tr>
-          <td><%= expense.expense_date%></td>
-          <td><%= expense.expense_name%></td>
-          <td><%= expense.expense_amount%></td>
-          <td>
-            <%= link_to "編集", edit_expense_path(expense.id) %>
-            <%= link_to "削除", expense_path(expense.id), method: :delete %>
-          </td>
+          <th>日時</th>
+          <th>項目</th>
+          <th>金額</th>
+          <th>操作</th>
         </tr>
-      <% end %>
-    </tbody>
-    </table>
-<% else %>
-  <p>登録されている収入はありません</p>
-<% end %>
+      </thead> 
+      <tbody>
+        <% @expenses.each do |expense| %>
+          <tr>
+            <td><%= expense.expense_date%></td>
+            <td><%= expense.expense_name%></td>
+            <td><%= expense.expense_amount%></td>
+            <td>
+              <%= link_to "編集", edit_expense_path(expense.id) %>
+              <%= link_to "削除", expense_path(expense.id), method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+  <% else %>
+    <p>登録されている収入はありません</p>
+  <% end %>
 
-<div class="top_link">
-  <%= link_to "トップページ", root_path %>
+  <div class="registration__link">
+    <%= link_to "トップページ", root_path %>
+  </div>
 </div>

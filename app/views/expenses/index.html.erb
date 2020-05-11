@@ -6,7 +6,7 @@
     </div>
     <div class="form">
       <%= form_with(url: expenses_searches_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.date_select :expense_date, discard_day:true, class: "search-input" %>
+        <%= form.date_select :search_date, use_month_numbers:true, class: "search-input" %>
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
     </div>

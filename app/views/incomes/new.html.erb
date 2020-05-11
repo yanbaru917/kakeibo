@@ -5,7 +5,7 @@
   <%= form_with model: @income do |form|%>
     <%= form.text_field :income_name, placeholder: :名前を入力してください, class: :form__name%>
     <%= form.text_field :income_amount, placeholder: :金額を入力してください, class: :form__amount%>
-    <%= form.date_select :income_date, {}, {class: :form__date} %>
+    <%= form.date_select :income_date, {use_month_numbers:true}, {class: :form__date} %>
     <%= form.submit value="登録", class: :form__btn %>
   <% end %>
   <div class="registration__link">
