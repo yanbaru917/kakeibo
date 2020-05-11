@@ -1,7 +1,7 @@
 class IncomesController < ApplicationController
 
   def index
-    @incomes = Income.order(income_date: :asc)
+    @incomes = Income.order(income_date: :desc).page(params[:page]).per(20)
     @total_income_amount = @incomes.sum(:income_amount)
   end
  

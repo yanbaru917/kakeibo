@@ -1,4 +1,7 @@
 <div class="quote">
+  <div class="title">
+    word of wisdom
+  </div>
   <% if @wisdoms.present? %>
     <div class="form">
       <%= form_with(url: wisdoms_searches_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -32,9 +35,14 @@
     <p>登録しましょう！！！</p>
   <% end %>
 
+<%= paginate(@wisdoms)%>
+
   <div class="content-link">
     <div class="content-link__bottom">
       <%= link_to "トップページ", root_path %> 
+    </div>
+    <div class="content-link__bottom">
+      <%= link_to "入力", new_wisdom_path %> 
     </div>
   </div>
 </div>

@@ -1,6 +1,24 @@
 .quote{
+  font-family: cursive;
+  .title {
+    width: 500px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    color: #009900;
+  }
+  .search-form {
+    display       : inline-block;
+    border-radius : 8%;     
+    font-size     : 14pt;    
+    padding: 12px;    
+  }
+  .search-btn {
+    border-radius : 2%;  
+  }
+
   table{
-    width: 100%;
+    width: 98%;
     border-collapse: collapse;
   }
 
@@ -33,10 +51,9 @@
   }
 
   table td{
-    text-align: left;
     text-align: center;
     background-color: #eee;
-    padding: 10px 0;
+    padding: 10px 5px;
       a{
         text-decoration: none;
         color: black;
@@ -48,6 +65,7 @@
     font-size: 20px;
     height: 30px;
     width: 60%;
+    padding-left: 10px;
     text-align: center;
     &__bottom{
       width: 45%;

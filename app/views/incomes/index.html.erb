@@ -38,7 +38,8 @@
   <% else %>
     <p>登録されている収入はありません</p>
   <% end %>
-
+  <%= paginate(@incomes)%>
+  
   <div class="content-link">
     <div class="content-link__top">
       <%= link_to "収入登録", new_income_path %>

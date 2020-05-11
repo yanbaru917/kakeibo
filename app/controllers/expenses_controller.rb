@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   
   def index
-    @expenses = Expense.order(expense_date: :asc)
+    @expenses = Expense.order(expense_date: :desc).page(params[:page]).per(20)
     @total_expense_amount = @expenses.sum(:expense_amount)
   end
 

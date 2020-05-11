@@ -1,6 +1,6 @@
 class WisdomsController < ApplicationController
   def index
-    @wisdoms = Wisdom.all
+    @wisdoms = Wisdom.order(created_at: :asc).page(params[:page]).per(10)
     @random_wisdoms = Wisdom.order("RAND()").first
     @random_wisdoms_word = @random_wisdoms.word
     @random_wisdoms_author = @random_wisdoms.author
