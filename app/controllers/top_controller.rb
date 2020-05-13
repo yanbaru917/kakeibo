@@ -6,9 +6,11 @@ class TopController < ApplicationController
     @total_expense_amount = @expenses.sum(:expense_amount)
     @balance_payment = @total_income_amount - @total_expense_amount
     @wisdoms = Wisdom.all
-    @random_wisdoms = Wisdom.order("RAND()").first
-    @random_wisdoms_word = @random_wisdoms.word
-    @random_wisdoms_author = @random_wisdoms.author
-
+    if @wisdoms.present?
+      @random_wisdoms = Wisdom.order("RAND()").first
+      @random_wisdoms_word = @random_wisdoms.word
+      @random_wisdoms_author = @random_wisdoms.author
+      return
+    end
   end
 end

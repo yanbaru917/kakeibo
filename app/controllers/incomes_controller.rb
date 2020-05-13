@@ -1,8 +1,10 @@
 class IncomesController < ApplicationController
 
   def index
-    @incomes = Income.order(income_date: :desc).page(params[:page]).per(20)
+    @incomes = Income.order(income_date: :desc).page(params[:page]).per(15)
     @total_income_amount = @incomes.sum(:income_amount)
+    @group_incomes = Income.group(:income_name).sum(:income_amount)
+    @group_incomes_sort = @group_incomes.sort {|(k1, v1), (k2, v2)| v2 <=> v1 }.to_h
   end
  
   def new
@@ -12,7 +14,7 @@ class IncomesController < ApplicationController
   def create
     @income = Income.new(income_params)
     if @income.save
-      redirect_to root_path, notice: '収入を登録しました'
+      redirect_to incomes_path, notice: '収入を登録しました'
     else
       render :new
     end

@@ -1,9 +1,11 @@
 class WisdomsController < ApplicationController
   def index
     @wisdoms = Wisdom.order(created_at: :asc).page(params[:page]).per(10)
-    @random_wisdoms = Wisdom.order("RAND()").first
-    @random_wisdoms_word = @random_wisdoms.word
-    @random_wisdoms_author = @random_wisdoms.author
+    if @wisdoms.present?
+      @random_wisdoms = Wisdom.order("RAND()").first
+      @random_wisdoms_word = @random_wisdoms.word
+      @random_wisdoms_author = @random_wisdoms.author
+    end
   end
 
   def new

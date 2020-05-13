@@ -10,35 +10,47 @@
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
     </div>
-    </div>
-
-    <table>
-      <thead>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>日時</th>
+        <th>項目</th>
+        <th>金額</th>
+        <th>操作</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <% @incomes.each do |income| %>
         <tr>
-          <th>日時</th>
-          <th>項目</th>
-          <th>金額</th>
-          <th>操作</th>
+          <td><%= income.income_date %></td>
+          <td><%= income.income_name %></td>
+          <td><%= income.income_amount.to_s(:delimited) %></td>
+          <td>
+            <%= link_to "編集", edit_income_path(income.id) %>
+            <%= link_to "削除", income_path(income.id), method: :delete %>
+          </td>
         </tr>
-      </thead> 
-      <tbody>
-        <% @incomes.each do |income| %>
-          <tr>
-            <td><%= income.income_date %></td>
-            <td><%= income.income_name %></td>
-            <td><%= income.income_amount.to_s(:delimited) %></td>
-            <td>
-              <%= link_to "編集", edit_income_path(income.id) %>
-              <%= link_to "削除", income_path(income.id), method: :delete %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <% end %>
+    </tbody>
+  </table>
   <% else %>
     <p>登録されている収入はありません</p>
   <% end %>
+  
   <%= paginate(@incomes)%>
+
+  <div class="group_income">
+    <div class="group_income__title">
+      項目別収入
+    </div>
+    <div class="group_income__content">
+      <% @group_incomes_sort.each do | key, value | %>
+        <p><%= "#{key} : #{value.to_s(:delimited)}円"%></p>
+      <% end %>
+    </div>
+  </div>
 
   <div class="content-link">
     <div class="content-link__top">

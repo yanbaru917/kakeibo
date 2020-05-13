@@ -1,8 +1,10 @@
 class ExpensesController < ApplicationController
   
   def index
-    @expenses = Expense.order(expense_date: :desc).page(params[:page]).per(20)
+    @expenses = Expense.order(expense_date: :desc).page(params[:page]).per(15)
     @total_expense_amount = @expenses.sum(:expense_amount)
+    @group_expenses = Expense.group(:expense_name).sum(:expense_amount)
+    @group_expenses_sort = @group_expenses.sort {|(k1, v1), (k2, v2)| v2 <=> v1 }.to_h
   end
   
   def new
@@ -12,7 +14,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
-      redirect_to root_path, notice: '支出を登録しました'
+      redirect_to expenses_path, notice: '支出を登録しました'
     else
       render :new
     end

@@ -23,7 +23,7 @@
 .income{
   table {
   width: 750px;
-      box-shadow: 0 0 15px -6px #00000073;
+  box-shadow: 0 0 15px -6px #00000073;
   }
   table tr {
   background-color: #fff;
@@ -51,6 +51,31 @@
 
   @media screen and (max-width: 600px) {
   table{width: 100%;}
+  }
+
+  .group_income {
+    margin-top: 15px;
+    height: 190px;
+    width: 300px;
+    border: 1px solid #fff;
+    box-shadow: 0 0 15px -6px #00000073;
+    &__title{
+      font-size: 17px;
+      height: 25px;
+      background-color: #0099FF;
+      color: #fff;
+      padding-left: 15px;
+    }
+    &__content{
+      font-size: 16px;
+      padding-left: 15px;
+      overflow: scroll;
+      height: 150px;
+      p{
+        margin: 5px;
+      }
+    }
+
   }
 
   .content-link{
@@ -153,8 +178,8 @@
 }
 .pagination {
   padding-top: 15px;
-  width: 100%;
-  padding-left: 20px;
+  width: 400px;
+  padding-left: 400px;
 }
 .pagination ul {
   display: flex;

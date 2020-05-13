@@ -39,7 +39,19 @@
     <p>登録されている支出はありません</p>
   <% end %>
 
-  <%= paginate(@expenses)%>
+      <%= paginate(@expenses)%>
+
+  <div class="group_expense">
+    <div class="group_expense__title">
+      項目別支出
+    </div>
+    <div class="group_expense__content">
+      <% @group_expenses_sort.each do | key, value | %>
+        <p><%= "#{key} : #{value.to_s(:delimited)}円"%></p>
+      <% end %>
+    </div>
+  </div>
+
 
   <div class="content-link">
     <div class="content-link__top">

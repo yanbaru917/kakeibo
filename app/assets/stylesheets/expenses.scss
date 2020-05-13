@@ -31,12 +31,37 @@
     table{width: 100%;}
     }
     
+    .group_expense {
+      height: 190px;
+      width: 300px;
+      border: 1px solid #fff;
+      box-shadow: 0 0 15px -6px #00000073;
+      margin-bottom: 15px;
+      &__title{
+        font-size: 17px;
+        height: 25px;
+        background-color: #FF6600;
+        color: #fff;
+        padding-left: 15px;
+      }
+      &__content{
+        font-size: 16px;
+        padding-left: 15px;
+        overflow: scroll;
+        height: 150px;
+        p{
+          margin: 5px;
+        }
+      }
+    }
+
     .content-link{
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 20px;
       height: 30px;
       width: 60%;
       text-align: center;
+
       
       &__top{
         width: 45%;
@@ -59,6 +84,7 @@
         }
       }
     }
+
   .registration{
     &__title{
       font-size: 20px;
