@@ -1,5 +1,4 @@
 .top-contet {
-  height: 50px;
   padding-top:15px;
   padding-left: 15px;
   width: 750px;
@@ -13,11 +12,12 @@
     .search-form {
       display       : inline-block;
       border-radius : 8%;     
-      font-size     : 14pt;    
-      padding       : 12px 12px;    
+      font-size     : 14pt;   
+      padding       : 5px 2px;   
     }
     .search-btn {
-      border-radius : 2%;     
+      border-radius : 1%;   
+      margin-left: 7px;  
     }
 }
 .income{
