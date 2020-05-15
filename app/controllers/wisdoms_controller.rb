@@ -1,6 +1,6 @@
 class WisdomsController < ApplicationController
   def index
-    @wisdoms = Wisdom.order(created_at: :asc).page(params[:page]).per(10)
+    @wisdoms = Wisdom.includes(:user).order(created_at: :asc).page(params[:page]).per(10)
     if @wisdoms.present?
       @random_wisdoms = Wisdom.order("RAND()").first
       @random_wisdoms_word = @random_wisdoms.word
@@ -42,7 +42,7 @@ class WisdomsController < ApplicationController
   
   private
   def wisdom_params
-    params.require(:wisdom).permit(:author, :word,)
+    params.require(:wisdom).permit(:author, :word,).merge(user_id: current_user.id)
   end
 
 end

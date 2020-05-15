@@ -1,74 +1,77 @@
-<header>
-  <div class="header">
-    <div class="header__title">
-      家計簿アプリ  
+<% if user_signed_in? %>
+  <div class="contents">
+    <div class="wisdom">
+      <div class="wisdom-top">
+        <div class="wisdom-top__word">
+          <% if @random_wisdoms_word.present? %>
+            <%= @random_wisdoms_word %>
+          <% else %>
+            <p>登録しましょう</p>
+          <% end %>
+        </div>
+        <div class="wisdom-top__autor">
+          <% if @random_wisdoms_author.present? %>
+            <%= @random_wisdoms_author %>
+          <% else %>
+            <p></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="wisdom-form">
+        <div class="wisdom-form__top">
+          <%= button_to "一覧", {controller: 'wisdoms', action: 'index'}, {method: :get, class:"top-btn"} %>
+        </div>
+        <div class="wisdom-form__new">
+          <%= button_to "入力", {controller: 'wisdoms', action: 'new'}, {method: :get, class:"new-btn"} %>
+        </div>
+      </div>
     </div>
-  </div>
-</header>
 
-<div class="contents">
-  <div class="wisdom">
-    <div class="wisdom-top">
-      <div class="wisdom-top__word">
-        <% if @random_wisdoms_word.present? %>
-          <%= @random_wisdoms_word %>
-        <% else %>
-          <p>登録しましょう</p>
-        <% end %>
-      </div>
-      <div class="wisdom-top__autor">
-        <% if @random_wisdoms_author.present? %>
-          <%= @random_wisdoms_author %>
-        <% else %>
-          <p></p>
-        <% end %>
+    <div class="top-content">
+      <div class="balance_payment">
+        <div class="balance_payment__total">
+          収  支：<%= @balance_payment.to_s(:delimited) %>円
+        </div>
+        <div class="balance_payment__income">
+          総収入：<%= @total_income_amount.to_s(:delimited) %>円
+        </div>
+        <div class="balance_payment__expense">
+          総支出：<%= @total_expense_amount.to_s(:delimited) %>円
+        </div>
       </div>
     </div>
-    <div class="wisdom-form">
-      <div class="wisdom-form__top">
-        <%= button_to "一覧", {controller: 'wisdoms', action: 'index'}, {method: :get, class:"top-btn"} %>
+    <div class="detail-content">
+      <div class="income-detail">
+        <ul class="income-detail__btn">
+          <li><%= link_to "収入詳細", incomes_path %></li>
+        </ul>
       </div>
-      <div class="wisdom-form__new">
-        <%= button_to "入力", {controller: 'wisdoms', action: 'new'}, {method: :get, class:"new-btn"} %>
+      <div class="expense-detail">
+        <ul  class="expense-detail__btn">
+          <li><%= link_to "支出詳細", expenses_path %></li>
+        </ul>
       </div>
     </div>
-  </div>
-
-  <div class="top-content">
-    <div class="balance_payment">
-      <div class="balance_payment__total">
-        収  支：<%= @balance_payment.to_s(:delimited) %>円
+    <div class="input-content">
+      <div class="input-income">
+        <ul class="input-income__btn">
+          <li><%= link_to "収入登録", new_income_path %></li>
+        </ul>
       </div>
-      <div class="balance_payment__income">
-        総収入：<%= @total_income_amount.to_s(:delimited) %>円
-      </div>
-      <div class="balance_payment__expense">
-        総支出：<%= @total_expense_amount.to_s(:delimited) %>円
+      <div class="input-expense">
+        <ul class="input-expense__btn">
+          <li><%= link_to "支出登録", new_expense_path %></li>
+        </ul>
       </div>
     </div>
   </div>
-  <div class="detail-content">
-    <div class="income-detail">
-      <ul class="income-detail__btn">
-        <li><%= link_to "収入詳細", incomes_path %></li>
-      </ul>
+<% else %>
+  <div class="user-sign">
+    <div class="user-sign__in">
+      <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
     </div>
-    <div class="expense-detail">
-      <ul  class="expense-detail__btn">
-        <li><%= link_to "支出詳細", expenses_path %></li>
-      </ul>
+    <div class="user-sign__up">
+      <%= link_to "新規登録", new_user_registration_path, class: "header__right--btn" %>
     </div>
   </div>
-  <div class="input-content">
-    <div class="input-income">
-      <ul class="input-income__btn">
-        <li><%= link_to "収入登録", new_income_path %></li>
-      </ul>
-    </div>
-    <div class="input-expense">
-      <ul class="input-expense__btn">
-        <li><%= link_to "支出登録", new_expense_path %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<% end %>

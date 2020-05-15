@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   
   def index
-    @expenses = Expense.order(expense_date: :desc).page(params[:page]).per(15)
+    @expenses = Expense.includes(:user).order(expense_date: :desc).page(params[:page]).per(15)
     @total_expense_amount = @expenses.sum(:expense_amount)
     @group_expenses = Expense.group(:expense_name).sum(:expense_amount)
     @group_expenses_sort = @group_expenses.sort {|(k1, v1), (k2, v2)| v2 <=> v1 }.to_h
@@ -41,6 +41,6 @@ class ExpensesController < ApplicationController
 
   private
   def expense_params
-    params.require(:expense).permit(:expense_name, :expense_amount, :expense_date)
+    params.require(:expense).permit(:expense_name, :expense_amount, :expense_date).merge(user_id: current_user.id)
   end
 end

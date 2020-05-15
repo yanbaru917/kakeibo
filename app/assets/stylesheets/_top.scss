@@ -9,10 +9,16 @@ body{
   text-align: right;
   background-color: #ffffff;
   padding: 20px 0 10px;
-  .header__title{
-    width: 95%;
+  .header__right{
+    width: 150px;
     font-size: 20px;
-    color: #009900;
+    float: right;
+    margin-right :20px;
+    a {
+      text-decoration: none;
+      color: #009900;
+
+    }
   }
 }
 
@@ -31,7 +37,7 @@ body{
   height: 30%;
   background-color: #ffffff;
   .wisdom-top {
-    height: 60%;
+    height: 70%;
     width: 90%;
     margin: 0 auto;
     color: #009900;
@@ -40,10 +46,11 @@ body{
     padding:15px 30px;
     &__word {
       text-align: center;
-      font-size: 30px;
+      font-size: 32px;
       width: 100%;
     }
     &__autor {
+      margin-top: 15px;
       text-align: right;
       font-size: 20px;
       width: 80%;
@@ -223,5 +230,44 @@ body{
       margin: auto;
       background-color: #FF6600;
     }
+  }
+}
+
+.user-sign{
+  padding: 70px 0px;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  line-height: 100px;
+  a {
+    text-decoration: none;
+    color: #009900;
+  }
+  &__in{ 
+    margin: 50px auto;
+    width: 200px;
+    height: 100px;
+    border: 1px solid #009900;
+    text-align: center;
+  } 
+  &__up{
+    width: 200px;
+    height: 100px;
+    margin: 30px auto;
+    border: 1px solid #009900;
+    text-align: center;
+  } 
+}
+
+.devise{
+  color: #009900;
+  padding: 15px;
+  a {
+    color: #009900;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
   }
 }

@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <header>
+      <div class="header">
+        <div class="header__right">
+          <%= link_to "家計簿アプリ", root_path, method: :delete, class: "header__right--btn" %> 
+        </div>
+        <div class="header__right">
+          <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
+          <% end %>
+        </div> 
+      </div>
+    </header>
+
     <%= render partial: 'layouts/flash' %>
     <%= yield %>
   </body>

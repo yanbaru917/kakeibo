@@ -1,7 +1,7 @@
 class IncomesController < ApplicationController
 
   def index
-    @incomes = Income.order(income_date: :desc).page(params[:page]).per(15)
+    @incomes = Income.includes(:user).order(income_date: :desc).page(params[:page]).per(15)
     @total_income_amount = @incomes.sum(:income_amount)
     @group_incomes = Income.group(:income_name).sum(:income_amount)
     @group_incomes_sort = @group_incomes.sort {|(k1, v1), (k2, v2)| v2 <=> v1 }.to_h
@@ -41,7 +41,7 @@ class IncomesController < ApplicationController
 
   private
   def income_params
-    params.require(:income).permit(:income_name, :income_amount, :income_date)
+    params.require(:income).permit(:income_name, :income_amount, :income_date).merge(user_id: current_user.id)
   end
 
 end

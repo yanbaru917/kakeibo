@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'wisdoms/index'
   root "top#index"
   get '/incomes', to: 'incomes#index'
