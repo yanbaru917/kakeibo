@@ -6,5 +6,3 @@ class Income < ApplicationRecord
     Income.where("income_date >= :start_date AND income_date <= :end_date",{start_date: start_search, end_date: end_search})
   end
 end
-  
-
