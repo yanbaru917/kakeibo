@@ -5,6 +5,8 @@ class WisdomsController < ApplicationController
       @random_wisdoms = Wisdom.order("RAND()").first
       @random_wisdoms_word = @random_wisdoms.word
       @random_wisdoms_author = @random_wisdoms.author
+    else
+      @wisdoms = "あああ","a"
     end
   end
 
