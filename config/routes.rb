@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'wisdoms/index'
   root "top#index"
   get '/incomes', to: 'incomes#index'
   get '/tops', to: 'incomes#index'
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
     resources :searches, only: :index
   end
   
-  resources :incomes
-  resources :expenses
-  resources :wisdoms
+  resources :incomes, except: :show
+  resources :expenses, except: :show
+  resources :wisdoms, except: :show
 end
