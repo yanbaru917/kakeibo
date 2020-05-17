@@ -2,7 +2,8 @@ class WisdomsController < ApplicationController
   def index
     @wisdoms = Wisdom.includes(:user).order(created_at: :asc).page(params[:page]).per(10)
     if @wisdoms.present?
-      @random_wisdoms = Wisdom.order("RAND()").first
+      rand = Rails.env.production? ? "RANDOM()" : "rand()"
+      @random_wisdoms = Wisdom.order(rand).first
       @random_wisdoms_word = @random_wisdoms.word
       @random_wisdoms_author = @random_wisdoms.author
     end
