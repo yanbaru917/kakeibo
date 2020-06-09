@@ -16,8 +16,6 @@
 ユーザー登録機能（途中）
 
 # kakeibo DB設計
-# ER図
-  https://gyazo.com/10c37b3245ddfb45cd625c850661abb8
 ## incomsテーブル
 |Column|Type|Options|
 |------|----|-------|
