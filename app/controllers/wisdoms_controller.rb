@@ -18,7 +18,8 @@ class WisdomsController < ApplicationController
     if @wisdom.save
     redirect_to root_path, notice: '登録しました'
     else
-      render :new
+      flash[:alert] = '登録できませんでした'
+      render action: "new"
     end
   end
 
@@ -27,7 +28,8 @@ class WisdomsController < ApplicationController
     if @wisdom.update(wisdom_params)
       redirect_to wisdoms_path, notice: '更新しました'
     else
-      render :edit
+      flash[:alert] = '更新できませんでした'
+      render action: "edit"
     end
   end
 

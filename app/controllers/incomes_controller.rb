@@ -16,7 +16,8 @@ class IncomesController < ApplicationController
     if @income.save
       redirect_to incomes_path, notice: '収入を登録しました'
     else
-      render :new
+      flash[:alert] = '登録できませんでした'
+      render action: "new"
     end
   end
 
@@ -25,7 +26,8 @@ class IncomesController < ApplicationController
     if @income.update(income_params)
     redirect_to incomes_path, notice: '収入を更新しました'
     else
-      render :edit
+      flash[:alert] = '更新できませんでした'
+      redirect_to action: "edit"
     end
   end
 

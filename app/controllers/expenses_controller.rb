@@ -16,7 +16,8 @@ class ExpensesController < ApplicationController
     if @expense.save
       redirect_to expenses_path, notice: '支出を登録しました'
     else
-      render :new
+      flash[:alert] = '登録できませんでした'
+      render action: "new"
     end
   end
 
@@ -29,7 +30,8 @@ class ExpensesController < ApplicationController
     if @expense.update(expense_params)
       redirect_to expenses_path, notice: '支出を更新しました'
     else
-      render :edit
+      flash[:alert] = '更新できませんでした'
+      redirect_to action: "edit"
     end
   end
 

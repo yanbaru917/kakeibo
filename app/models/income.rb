@@ -1,5 +1,6 @@
 class Income < ApplicationRecord
-  validates :income_name, :income_amount, :income_date, presence: true
+  validates :income_name, :income_date, presence: true
+  validates :income_amount, numericality: true
   belongs_to :user
 
   def self.search(start_search,end_search)
